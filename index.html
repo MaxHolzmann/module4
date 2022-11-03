@@ -5,17 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Kawiz!</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
 
-    <header>
+    <header class="header">
         <p></p>
         <p></p>
     </header>
 
-    <main>
-        
-    </main>
+    
+        <section id="start-hidden">
+        <section class="start-container">
+            <h2 class="start-title text-center">Let's take a Coding Kawiiiz!</h2>
+            <p class="start-description text-center">Press the start button to begin the test. The test is timed, and it will begin counting down when you click start. If you answer a question incorrectly,
+                time will be taken from your timer. Your final score will be the time remaining when you've answered the last question.
+            </p>
+            <button id="start">Start</button>
+        </section>
+        </section>
+
+    <section id="question-hidden" class="hide">
+        <section class="question-container">
+            <p id="question"></p>
+            <button class="button" id="ans1"></button>
+            <button class="button" id="ans2"></button>
+            <button class="button" id="ans3"></button>
+            <button class="button" id="ans4"></button>
+        </section>
+    </section>
     
 </body>
 </html>

@@ -1,3 +1,33 @@
 :root {
-    
+
+}
+
+/* Utility classes */
+.text-center {
+    text-align: center;
+}
+
+.hide {
+    display: none;
+}
+
+
+/* Starting styles */
+.start-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.start-title {
+
+}
+
+.start-description {
+
+}
+
+/* Question container styles */
+
+.question-container {
+   
 }
