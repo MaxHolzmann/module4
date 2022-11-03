@@ -33,49 +33,79 @@ const buttonFour = document.getElementById('ans4');
 
 let questionNumber = 1;
 
-
 const timerText = document.getElementById('timer');
 let time = 60;
 let allQuestionsAnswered;
+
+const scoreSaveContainer = document.getElementById('save-score');
+let scoreText = document.getElementById('score-text')
+const saveScoreButton = document.getElementById('save-button');
+const userInput = document.getElementById('username');
 
 
 // Questions object
 
 let questionOne = {
-    question: "What is this question?",
-    answerOneText: "This answer is correct",
-    answerTwoText: "This answer is wrong",
-    answerThreeText: "This answer is wrong",
-    answerFourText: "This answer is wrong",
-    answerOne: false,
+    question: "Which method adds items to the end an array?",
+    answerOneText: "push()",
+    answerTwoText: "pop()",
+    answerThreeText: "splice()",
+    answerFourText: "unshift()",
+    answerOne: true,
     answerTwo: false,
     answerThree: false,
     answerFour: false
 }
 
 let questionTwo = {
-    question: "What is this question 2?",
-    answerOneText: "This answer is correct",
-    answerTwoText: "This answer is wronggg",
-    answerThreeText: "This answer is wronggg",
-    answerFourText: "This answer is wronggg",
+    question: "Which one of these is not a variable keyword?",
+    answerOneText: "var",
+    answerTwoText: "let",
+    answerThreeText: "if",
+    answerFourText: "const",
     answerOne: false,
+    answerTwo: false,
+    answerThree: true,
+    answerFour: false
+}
+
+let questionThree = {
+    question: "What method will combine two strings?",
+    answerOneText: "combine()",
+    answerTwoText: "concat()",
+    answerThreeText: "add()",
+    answerFourText: "append()",
+    answerOne: false,
+    answerTwo: true,
+    answerThree: false,
+    answerFour: false
+}
+
+let questionFour = {
+    question: "Which one of these accesses an HTML element by its ID?",
+    answerOneText: "getElementById()",
+    answerTwoText: "grabElementById()",
+    answerThreeText: "elementId()",
+    answerFourText: "findElementById()",
+    answerOne: true,
     answerTwo: false,
     answerThree: false,
     answerFour: false
 }
 
-let questionThree = {
-    question: "What is this question 3?",
-    answerOneText: "This answer is correct",
-    answerTwoText: "This answer is wrong",
-    answerThreeText: "This answer is wrong",
-    answerFourText: "This answer is wrong",
+
+let questionFive = {
+    question: "How do you access an HTML elements classes with JavaScript?",
+    answerOneText: ".class",
+    answerTwoText: ".cssClasses",
+    answerThreeText: ".classes",
+    answerFourText: ".classList",
     answerOne: false,
     answerTwo: false,
     answerThree: false,
-    answerFour: false
+    answerFour: true
 }
+
 
 
 
@@ -97,28 +127,22 @@ startButton.addEventListener("click", () => {
         }
 
         if(allQuestionsAnswered) {
-            clearInterval(timer)
+            clearInterval(timer);
+            questionContainer.classList.add("hide");
+            console.log(time);
+            saveScore(time);
         }
 
         timerText.textContent = time;
         time--;
     }, 1500)
 
-    // questionText.textContent = questionOne.question;
-    // buttonOne.textContent = questionOne.answerOneText;
-    // buttonTwo.textContent = questionOne.answerTwoText;
-    // buttonThree.textContent = questionOne.answerThreeText;
-    // buttonFour.textContent = questionOne.answerFourText;
-
-    if(questionNumber == 2) {
-        questionText.textContent = questionTwo.question;
-        buttonOne.textContent = questionTwo.answerOneText;
-        buttonTwo.textContent = questionTwo.answerTwoText;
-        buttonThree.textContent = questionTwo.answerThreeText;
-        buttonFour.textContent = questionTwo.answerFourText;
-    }
+    questionText.textContent = questionOne.question;
+    buttonOne.textContent = questionOne.answerOneText;
+    buttonTwo.textContent = questionOne.answerTwoText;
+    buttonThree.textContent = questionOne.answerThreeText;
+    buttonFour.textContent = questionOne.answerFourText
     
-
 });
 
 buttonOne.addEventListener("click", () => {
@@ -152,4 +176,45 @@ const checkQuestionNumber = () => {
         buttonThree.textContent = questionThree.answerThreeText;
         buttonFour.textContent = questionThree.answerFourText;
     }
+    if(questionNumber == 4) {
+        questionText.textContent = questionFour.question;
+        buttonOne.textContent = questionFour.answerOneText;
+        buttonTwo.textContent = questionFour.answerTwoText;
+        buttonThree.textContent = questionFour.answerThreeText;
+        buttonFour.textContent = questionFour.answerFourText;
+    }
+    if(questionNumber == 5) {
+        questionText.textContent = questionFive.question;
+        buttonOne.textContent = questionFive.answerOneText;
+        buttonTwo.textContent = questionFive.answerTwoText;
+        buttonThree.textContent = questionFive.answerThreeText;
+        buttonFour.textContent = questionFive.answerFourText;
+    } else if (questionNumber > 5) {
+        allQuestionsAnswered = true; 
+    }
+}
+
+//function to display enter initials screen 
+const saveScore = (score) => {
+    scoreSaveContainer.classList.remove("hide");
+
+    scoreText.textContent = "Your score was " + score + "\nEnter your name to save your score!";
+    //take in time variable to save with the entered initials.
+
+}
+
+saveScoreButton.addEventListener("click", () => {
+    console.log("hey this owrked");
+    localStorage.setItem(userInput.value, time);
+});
+
+const getAllStorage = () => {
+    let values = [];
+    keys = Object.keys(localStorage),
+    i = keys.length;
+
+    while(i--) {
+        values.push(localStorage.getItem(keys[i]));
+    }
+    return values;
 }
