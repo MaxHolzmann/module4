@@ -22,7 +22,7 @@ const buttonFour = document.getElementById('ans4');
 let questionNumber = 1;
 
 const timerText = document.getElementById('timer');
-let time = 60;
+let time = 90;
 let allQuestionsAnswered;
 
 const scoreSaveContainer = document.getElementById('save-score');
@@ -117,13 +117,13 @@ startButton.addEventListener("click", () => {
         if(allQuestionsAnswered) {
             clearInterval(timer);
             questionContainer.classList.add("hide");
-            console.log(time);
             saveScore(time);
         }
 
         timerText.textContent = time;
         time--;
-    }, 1500)
+
+    }, 1000)
 
     questionText.textContent = questionOne.question;
     buttonOne.textContent = questionOne.answerOneText;
@@ -229,15 +229,12 @@ const checkQuestionNumber = () => {
 //function to display enter initials screen 
 const saveScore = (score) => {
     scoreSaveContainer.classList.remove("hide");
-
     scoreText.textContent = "Your score was " + score + "\nEnter your name to save your score!";
-    //take in time variable to save with the entered initials.
-
 }
 
 saveScoreButton.addEventListener("click", () => {
-    console.log("hey this owrked");
     localStorage.setItem(userInput.value, time);
+    window.location.reload();
 });
 
 const getAllStorage = () => {
