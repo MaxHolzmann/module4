@@ -9,21 +9,18 @@ const sortScores = () => {
 
     let scoreArray = Object.entries(highScores)
 
-    let sortedArray = scoreArray.sort((a, b) => a[1] - b[1]);
+    return scoreArray.sort((a, b) => b[1] - a[1]);
 
-    return sortedArray;
 }
 
 const displayScores = (scores) => {
     for(let i = 0; i < scores.length; i++) {
 
         let newScore = document.createElement('p');
-        console.log(scores[i]);
-        newScore.textContent = scores[i];
+        newScore.textContent = scores[i].join(" - ");
 
         highScoreContainer.appendChild(newScore);
 
-        
     }
 }
 

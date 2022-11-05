@@ -1,15 +1,3 @@
-// GIVEN I am taking a code quiz
-// WHEN I click the start button
-// THEN a timer starts and I am presented with a question
-// WHEN I answer a question
-// THEN I am presented with another question
-// WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock
-// WHEN all questions are answered or the timer reaches 0
-// THEN the game is over
-// WHEN the game is over
-// THEN I can save my initials and score
-
 
 /* 
 
@@ -145,8 +133,14 @@ startButton.addEventListener("click", () => {
     
 });
 
+// Button event listeners, checks if answer is correct/incorrect
+
 buttonOne.addEventListener("click", () => {
-    if(questionOne.answerOne == true) {
+    if(questionOne.answerOne && questionNumber === 1) {
+        console.log("Correct!")
+        questionNumber++;
+        checkQuestionNumber();
+    } else if (questionFour.answerOne && questionNumber === 4) {
         console.log("Correct!")
         questionNumber++;
         checkQuestionNumber();
@@ -157,7 +151,45 @@ buttonOne.addEventListener("click", () => {
         console.log(questionNumber);
         checkQuestionNumber();
     }
+});
+
+buttonTwo.addEventListener("click", () => {
+    if(questionThree.answerTwo && questionNumber == 3) {
+        console.log("correct");
+        questionNumber++;
+        checkQuestionNumber();
+    } else {
+        time = time - 4;
+        questionNumber++;
+        checkQuestionNumber();
+    }
 })
+
+buttonThree.addEventListener("click", () => {
+    if(questionTwo.answerThree && questionNumber == 2) {
+        console.log("correct");
+        questionNumber++;
+        checkQuestionNumber();
+    } else {
+        time = time - 4;
+        questionNumber++;
+        checkQuestionNumber();
+    }
+})
+
+buttonFour.addEventListener("click", () => {
+    if(questionFive.answerFour && questionNumber == 5) {
+        console.log("correct");
+        questionNumber++;
+        checkQuestionNumber();
+    } else {
+        time = time - 4;
+        questionNumber++;
+        checkQuestionNumber();
+    }
+});
+
+
 
 // to check question number and set to correct question? 
 

@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 :root {
 
+}
+
+* {
+    font-family: "Poppins";
+    background-color: #d5def5;
 }
 
 /* Utility classes */
@@ -11,23 +18,92 @@
     display: none;
 }
 
+/* Header styles */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    color: black;
+    text-decoration: none;
+}
 
 /* Starting styles */
 .start-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .start-title {
-
+    font-size: 2em;
 }
 
 .start-description {
+    width: 60%;
+    font-size: 1.2em;
+}
 
+#start {
+    display: inline-block;
+    width: 100%;
+    max-width: 120px;
+    font-size: 24px;
+    background-color: #6643b5;
+    color: white;
+    border-radius: 30px;
+    border: 2px solid white;
+    transition: ease-in 0.2s;
+}
+
+#start:hover {
+    background-color: white;
+    color: #6643b5;
+    border: 2px solid #6643b5;
+    cursor: pointer;
 }
 
 /* Question container styles */
+#question {
+    font-size: 1.7em;
+}
 
 .question-container {
-   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.button {
+    background-color: #8594e4;
+    color: white;
+    border: 2px solid white;
+    border-radius: 30px;
+    padding: 10px;
+    font-size: 1.5em;
+    transition: ease-in 0.2s;
+    min-width: 140px;
+}
+
+.button:hover {
+    background-color: white;
+    border: 2px solid #8594e4;
+    color: #8594e4;
+    cursor: pointer;
+}
+
+/* High score page */
+
+.highscore-title {
+    text-align: center;
+}
+
+#highscores {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
