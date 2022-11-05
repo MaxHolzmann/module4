@@ -1,11 +1,11 @@
 
 /* 
+TODO:
 
-mental notes:
-i want to use local storage to keep high scores and view them
-i want to learn how to timer
-dynamically update timer
-update answers (thats just button text, but change the value of the html button depending on the correct answer, maybe using an if statement with an object or something?)
+Design save page
+clean console logs
+
+add dynamic text that fades away, displaying whether you were correct or incorrect.
 
 */
 
@@ -31,7 +31,7 @@ const saveScoreButton = document.getElementById('save-button');
 const userInput = document.getElementById('username');
 
 
-// Questions object
+// Question objects
 
 let questionOne = {
     question: "Which method adds items to the end an array?",
@@ -97,12 +97,7 @@ let questionFive = {
 
 
 
-
-
 startButton.addEventListener("click", () => {
-
-
-    console.log('Event listener worked');
     startContainer.classList.add("hide");
     questionContainer.classList.remove("hide");
     
