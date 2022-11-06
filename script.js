@@ -2,7 +2,6 @@
 /* 
 TODO:
 
-Design save page
 clean console logs
 
 add dynamic text that fades away, displaying whether you were correct or incorrect.
@@ -18,6 +17,8 @@ const buttonOne = document.getElementById('ans1');
 const buttonTwo = document.getElementById('ans2');
 const buttonThree = document.getElementById('ans3');
 const buttonFour = document.getElementById('ans4');
+let correctText = document.getElementById('correct-text');
+let incorrectText = document.getElementById('incorrect-text');
 
 let questionNumber = 1;
 
@@ -132,28 +133,28 @@ startButton.addEventListener("click", () => {
 
 buttonOne.addEventListener("click", () => {
     if(questionOne.answerOne && questionNumber === 1) {
-        console.log("Correct!")
+        correctText.textContent = "Correct!";
         questionNumber++;
         checkQuestionNumber();
     } else if (questionFour.answerOne && questionNumber === 4) {
-        console.log("Correct!")
+        correctText.textContent = "Correct!";
         questionNumber++;
         checkQuestionNumber();
     } else {
-        console.log("incorrect")
+        incorrectText.textContent = "Incorrect.";
         time = time - 4;
         questionNumber++;
-        console.log(questionNumber);
         checkQuestionNumber();
     }
 });
 
 buttonTwo.addEventListener("click", () => {
     if(questionThree.answerTwo && questionNumber == 3) {
-        console.log("correct");
+        correctText.textContent = "Correct!";
         questionNumber++;
         checkQuestionNumber();
     } else {
+        incorrectText.textContent = "Incorrect.";
         time = time - 4;
         questionNumber++;
         checkQuestionNumber();
@@ -162,10 +163,11 @@ buttonTwo.addEventListener("click", () => {
 
 buttonThree.addEventListener("click", () => {
     if(questionTwo.answerThree && questionNumber == 2) {
-        console.log("correct");
+        correctText.textContent = "Correct!";
         questionNumber++;
         checkQuestionNumber();
     } else {
+        incorrectText.textContent = "Incorrect.";
         time = time - 4;
         questionNumber++;
         checkQuestionNumber();
@@ -174,10 +176,11 @@ buttonThree.addEventListener("click", () => {
 
 buttonFour.addEventListener("click", () => {
     if(questionFive.answerFour && questionNumber == 5) {
-        console.log("correct");
+        correctText.textContent = "Correct!";
         questionNumber++;
         checkQuestionNumber();
     } else {
+        incorrectText.textContent = "Incorrect.";
         time = time - 4;
         questionNumber++;
         checkQuestionNumber();
@@ -189,6 +192,12 @@ buttonFour.addEventListener("click", () => {
 // to check question number and set to correct question? 
 
 const checkQuestionNumber = () => {
+
+    setTimeout(() => {
+        correctText.textContent = "";
+        incorrectText.textContent = "";
+    }, 2000)
+
     if(questionNumber == 2) {
         questionText.textContent = questionTwo.question;
         buttonOne.textContent = questionTwo.answerOneText;
@@ -224,7 +233,7 @@ const checkQuestionNumber = () => {
 //function to display enter initials screen 
 const saveScore = (score) => {
     scoreSaveContainer.classList.remove("hide");
-    scoreText.textContent = "Your score was " + score + "\nEnter your name to save your score!";
+    scoreText.textContent = "Your score was " + score;
 }
 
 saveScoreButton.addEventListener("click", () => {

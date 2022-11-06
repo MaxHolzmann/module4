@@ -97,6 +97,50 @@ header a {
     cursor: pointer;
 }
 
+#correct-text {
+    color: rgb(28, 196, 28);
+    font-size: 1.7em;
+}
+
+#incorrect-text {
+    color: red;
+    font-size: 1.7em;
+}
+
+
+/* Score saving */
+
+#save-score {
+    text-align: center;
+    padding: 10px;
+}
+
+#score-text {
+    font-size: 1.7em;
+}
+
+#username {
+    border-radius: 30px;
+    font-size: 1.3em;
+    background-color: white;
+    border: 2px solid #8594e4;
+}
+
+#save-button {
+    border-radius: 30px;
+    font-size: 1.3em;
+    border: 2px solid white;
+    color: white;
+    background-color: #8594e4;
+    transition: ease-in 0.2s;
+}
+
+#save-button:hover {
+    color: #8594e4;
+    background-color: white;
+    border: 2px solid #8594e4;
+}
+
 /* High score page */
 
 .highscore-title {
