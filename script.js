@@ -1,13 +1,4 @@
-
-/* 
-TODO:
-
-clean console logs
-
-add dynamic text that fades away, displaying whether you were correct or incorrect.
-
-*/
-
+//DOM variables
 const startButton = document.getElementById("start");
 const startContainer = document.getElementById('start-hidden');
 const questionContainer = document.getElementById('question-hidden');
